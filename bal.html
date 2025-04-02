@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .wallet {
+            border: 2px solid #000;
+            padding: 20px;
+            display: inline-block;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+        }
+        input {
+            margin-top: 10px;
+            padding: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="wallet">
+        <h2>Gift Card Wallet</h2>
+        <p>Balance: ₦<span id="balance">0.00</span></p>
+        <input type="number" id="withdrawAmount" placeholder="Enter amount" min="1" max="5550">
+        <br>
+        <button onclick="withdraw()">Withdraw</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        let balance = 0.00;
+
+        function withdraw() {
+            let amount = parseFloat(document.getElementById("withdrawAmount").value);
+            let message = document.getElementById("message");
+            
+            if (isNaN(amount) || amount <= 0) {
+                message.textContent = "Please enter a valid amount.";
+                return;
+            }
+            
+            if (amount > 5550) {
+                message.textContent = "Maximum withdrawal limit is ₦5550.";
+                return;
+            }
+            
+            if (amount > balance) {
+                message.textContent = "Insufficient balance.";
+                return;
+            }
+            
+            balance -= amount;
+            document.getElementById("balance").textContent = balance;
+            message.textContent = "Withdrawal successful!";
+        }
+    </script>
+</body>
+</html>

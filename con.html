@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Card Balance Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+        .balance {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Gift Card Balance Converter</h2>
+        <input type="number" id="balanceUSD" placeholder="Enter Balance in USD">
+        <button onclick="convertBalance()">Convert to Naira</button>
+        <p class="balance" id="balanceNGN">Balance in Naira: ₦0.00</p>
+    </div>
+    <script>
+        function convertBalance() {
+            var usd = document.getElementById("balanceUSD").value;
+            if (usd.trim() === "" || isNaN(usd) || usd <= 0) {
+                alert("Please enter a valid amount in USD.");
+                return;
+            }
+            var conversionRate = 1500; // Example rate, replace with live rate if needed
+            var naira = (usd * conversionRate).toFixed(2);
+            document.getElementById("balanceNGN").innerText = "Balance in Naira: ₦" + naira;
+        }
+    </script>
+</body></body> <a href="bal.html"><button>move to wallet</button></a>
+</html>

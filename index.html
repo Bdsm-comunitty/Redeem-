@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Card Redemption</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+        .balance {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body> 
+    <div class="container">
+        <h2>Redeem Your Gift Card</h2>
+        <input type="text" id="giftCardCode" placeholder="Enter Gift Card Code">
+        <button onclick="redeemCard()">Submit</button>
+        <p class="balance" id="balance">Balance: $0.00</p>
+    </div> 
+    
+    <script>
+        function redeemCard() {
+            var code = document.getElementById("giftCardCode").value;
+            if (code.trim() === "ABC123") {
+                alert("Please enter a valid gift card code. This card has been used by you.");
+                return;
+            }
+            // Simulating balance check (Replace with actual API call if needed)
+            document.getElementById("balance").innerText = "Balance: $100.00";
+            alert("Gift card redeemed successfully!");
+        }  
+    </script> 
+</body> <a href="con.html"><button>convert to naira</button></a>
+</html>
