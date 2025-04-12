@@ -38,7 +38,7 @@
 <body>
     <div class="wallet">
         <h2>Gift Card Wallet</h2>
-        <p>Balance: ₦<span id="balance">825000.00</span></p>
+        <p>Balance: ₦<span id="balance">820000.00</span></p>
         <input type="number" id="withdrawAmount" placeholder="Enter amount" min="1" max="5550">
         <br>
         <button onclick="withdraw()">Withdraw</button>
@@ -57,8 +57,8 @@
                 return;
             }
             
-            if (amount > 5550) {
-                message.textContent = "Maximum withdrawal limit is ₦5550.";
+            if (amount > 10) {
+                message.textContent = "Withdrawal is currently unavailable as your KYC verification is not yet complete. Please complete the KYC process to enable withdrawals.";
                 return;
             }
             
